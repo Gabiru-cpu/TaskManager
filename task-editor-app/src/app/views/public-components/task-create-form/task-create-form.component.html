@@ -1,0 +1,17 @@
+<div class="card card-body m-2">
+    <form [formGroup]="createAssignmentForm" (ngSubmit)="createAssignmentSubmit()" class="d-flex flex-column align-items-center p-2 m-2" action="">
+        <input  type="text" class="form-control p-2 m-2" id="inputTitle" aria-describedby="Title" placeholder="Title" formControlName="inputTitle">
+        <textarea  class="form-control p-2 m-2" id="inputDescription" aria-describedby="Description" placeholder="Description" formControlName="inputDescription"></textarea>
+        <label for="inputDueDate" class="form-label">Due Date</label>
+        <input type="date" class="form-control p-2 m-2" id="inputDueDate" aria-describedby="Due Date" formControlName="inputDueDate">
+
+        <button type="submit" class="btn btn-secondary">
+            Create Task
+        </button>
+
+        @if (this.creationError != ""){
+            <span class="text-danger">{{this.creationError}}</span>
+        }
+    
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<app-task-list-header></app-task-list-header>
+<div class="container-fluid row w-100 p-0">
+    @defer{
+        <div class="col-md-2 col-12">
+            <app-task-list-sidebar></app-task-list-sidebar>
+        </div>
+        
+        <div class="col-md-10 col-12">
+            @if (showCreateAssignmentListForm) {
+                <div class="d-flex border-bottom">
+                    <app-task-list-create-form></app-task-list-create-form>
+                </div>
+            }
+            <div>
+                <app-task-container [listAssignment]="listAssignment" [currentErrorMessage]="currentErrorMessage" [listTitle]="assignmentListTitle" [listId]="assignmentListId"></app-task-container>        
+            </div>
+        </div>
+    }@placeholder{
+        <div class="spinner-border"></div>
+    }
+</div>

@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "209001ae-e522-4cac-9d81-51ccdba68e76",
+		"name": "New WebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31812457",
+		"_collection_link": "https://speeding-water-964551.postman.co/workspace/My-Workspace~fb93f563-cf60-4bea-8577-cfb4efcb6e06/collection/31812457-209001ae-e522-4cac-9d81-51ccdba68e76?action=share&source=collection_link&creator=31812457"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7291/User/get-user-by-id?userId=123",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7291",
+							"path": [
+								"User",
+								"get-user-by-id"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"test2\",\r\n    \"email\":\"test2@mail.com\",\r\n    \"password\":\"aB!123456\",\r\n    \"passwordConfirm\":\"aB!123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7291/User/sign-up",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7291",
+							"path": [
+								"User",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User's Data (Username and Email)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"9c2bbf20-7b07-459d-adab-3c76cfe4d781\",\r\n    \"UserName\":\"test1\",\r\n    \"Email\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7291/User/update-user-data",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7291",
+							"path": [
+								"User",
+								"update-user-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7291/User/list-user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7291",
+							"path": [
+								"User",
+								"list-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "userId",
+								"value": "1cccaaac-e80b-4302-b7dc-432b7b956aab",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:7291/User/delete-user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7291",
+							"path": [
+								"User",
+								"delete-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"Test1\",\r\n    \"password\":\"aB!123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44378/Auth/sign-in",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"Auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment List",
+			"item": [
+				{
+					"name": "Create Assignment List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdDMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmZDVmZjcwLWNkZWEtNGIyOS05YzFiLWM4MjE0NjA2NmFkMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3QzQG1haWwuY29tIiwianRpIjoiZjNhNDJlZmUtODZkNS00NzQ2LWIzYmMtM2RhYTI3YWIzMGM0IiwiZXhwIjoxNzAzMjY1OTg4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzY5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.ZGnodymV0lnOFXL5z1GGKRaOHIWXC_Kn58IJ7S3sFjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Lista de Compras\",\r\n    \"userId\":\"a87a48f8-16e1-474a-affc-2d45e4422a01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44378/AssignmentList/create-assignment-list",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"AssignmentList",
+								"create-assignment-list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Assignment Lists By User Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdDMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmZDVmZjcwLWNkZWEtNGIyOS05YzFiLWM4MjE0NjA2NmFkMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3QzQG1haWwuY29tIiwianRpIjoiNmQwN2IxZGMtNjNmYi00ZDI4LTkxZmMtYzQyODkwY2Y0MGI4IiwiZXhwIjoxNzAzNjA3NDY5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzY5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.uZcg9ofiJZMy7k5QlRsn_VPvqf3SOGUlU1XnjZp3wkA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44378/AssignmentList/list-assignments-by-user?userId=a87a48f8-16e1-474a-affc-2d45e4422a01",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"AssignmentList",
+								"list-assignments-by-user"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "a87a48f8-16e1-474a-affc-2d45e4422a01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment List's Name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdDMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmZDVmZjcwLWNkZWEtNGIyOS05YzFiLWM4MjE0NjA2NmFkMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3QzQG1haWwuY29tIiwianRpIjoiM2I1ZDcyNjMtM2I4My00YmQ1LWE3MDAtMzdjOGRkNWRiNDZmIiwiZXhwIjoxNzAzMjc3ODQyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzY5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.Nj2flO7ZwmRLIx0L8EP-6hkCD9KSjKouGBhW3E-IRZE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":1,\r\n    \"NewName\":\"Lista de Compras\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44378/AssignmentList/update-assignment-list-name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"AssignmentList",
+								"update-assignment-list-name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44378/AssignmentList/delete-assignment-list?assignmentListId=2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"AssignmentList",
+								"delete-assignment-list"
+							],
+							"query": [
+								{
+									"key": "assignmentListId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment",
+			"item": [
+				{
+					"name": "Create Assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdDMiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFmZDVmZjcwLWNkZWEtNGIyOS05YzFiLWM4MjE0NjA2NmFkMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3QzQG1haWwuY29tIiwianRpIjoiNmQwN2IxZGMtNjNmYi00ZDI4LTkxZmMtYzQyODkwY2Y0MGI4IiwiZXhwIjoxNzAzNjA3NDY5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzY5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.uZcg9ofiJZMy7k5QlRsn_VPvqf3SOGUlU1XnjZp3wkA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Tomate\",\r\n    \"description\":\"\",\r\n    \"dueDate\":\"2024-01-01\",\r\n    \"assignmentListId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44378/Assignment/create-assignment",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"Assignment",
+								"create-assignment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "AuthToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdDEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjljMmJiZjIwLTdiMDctNDU5ZC1hZGFiLTNjNzZjZmU0ZDc4MSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3QxQG1haWwuY29tIiwianRpIjoiNjcxZGVhZTQtMWNhMS00NGY0LTlkNjgtZWU5OWUzMGRiOTdiIiwiZXhwIjoxNzAzMTc3NzY0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ0MzY5IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo0MjAwIn0.S-F8SMzQ8aiz8zbF_OB71Jskwf2IQgh--ng8R27kC5I"
+		}
+	]
+}

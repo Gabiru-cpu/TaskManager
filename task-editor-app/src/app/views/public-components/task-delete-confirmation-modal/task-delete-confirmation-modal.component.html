@@ -1,0 +1,21 @@
+<div class="offcanvas offcanvas-start show" data-bs-backdrop="static" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+        <button type="button" (click)="disableModal()" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        Are you sure you want to delete the task {{assignmentTitle}}?
+
+        <div class="d-flex flex-row justify-content-between m-2 p-4">
+            <button (click)="disableModal()" class="btn btn-secondary">
+                Cancel
+            </button>
+            <button (click)="deleteAssignment()" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+
+    </div>
+
+    
+</div>
+  

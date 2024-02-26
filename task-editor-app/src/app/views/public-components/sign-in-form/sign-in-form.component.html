@@ -1,0 +1,12 @@
+<form [formGroup]="signInForm" (ngSubmit)="signInSubmit()" class="d-flex flex-column align-items-center p-2 m-2" action="">
+    <input  type="text" class="form-control p-2 m-2" id="inputUsername" aria-describedby="Username" placeholder="Username" formControlName="inputUsername">
+    
+    <input type="password" class="form-control p-2 m-2" id="inputPassword" aria-describedby="Password" placeholder="Password" formControlName="inputPassword">
+
+    <button type="submit" class="btn btn-primary m-2">Sign In</button>            
+
+    @if (this.signInError != ""){
+        <span class="text-danger">{{this.signInError}}</span>
+    }
+
+</form>

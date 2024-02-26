@@ -1,0 +1,33 @@
+
+@if(currentErrorMessage != "" || listAssignment.length > 0){
+    
+    <h2 class="text-center sm-text-left">{{listTitle}}</h2>
+
+    <span class="text-secondary">{{currentErrorMessage}}</span>
+
+    @for (assignment of listAssignmentComputed(); track assignment){
+        @if (!assignment.isCompleted) {
+            <app-task-card [assignment]="assignment"></app-task-card>
+        }
+    }
+    <hr>
+    @for (assignment of listAssignmentComputed(); track assignment){
+        @if (assignment.isCompleted) {
+            <app-task-card [assignment]="assignment"></app-task-card>
+        }
+    }
+
+    <div class="d-flex flex-row">
+        <button class="btn btn-secondary h-100 shadow-sm" (click)="toggleCollapse()" type="button">
+            <span class="m-2">Create Task</span>
+            <i class="bi bi-plus-circle-fill"></i>
+        </button>
+        @if(showCreationForm){
+            <div>
+                <app-task-create-form [currentAssignmentListId]="listId"></app-task-create-form>
+            </div>
+        }        
+    </div>
+}@else{
+    <h2 class="text-secondary text-center mt-5">Select or create a task list</h2>
+}

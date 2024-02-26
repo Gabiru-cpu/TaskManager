@@ -1,0 +1,38 @@
+@if(showConfirmationModal){
+    <app-task-delete-confirmation-modal [assignmentId]="assignmentId" [assignmentTitle]="assignment.title"></app-task-delete-confirmation-modal>
+}
+
+<div class="card m-2 d-flex flex-row">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{title}}</h5>
+        @if (description != "") {
+            <p class="card-text">{{description}}</p>
+        }
+    </div>
+    <form class="align-self-center p-2 d-flex flex-row">
+        
+        <div class="m-2">
+            @if(datePassed){
+                <span>Due Date: {{dueDate | date: "dd/MM/yyyy"}}</span>
+            }@else{
+                @if(isCompleted){
+                    <span>Due Date: {{dueDate | date: "dd/MM/yyyy"}}</span>
+                }@else{
+                    <span class="text-warning">Due Date: {{dueDate | date: "dd/MM/yyyy" }}</span>
+                }
+            }
+        </div>
+
+        <span appHoverDanger (click)="confirmDeleteAssignment()" class="btn text-secondary">
+            <i class="bi bi-trash-fill"></i>
+        </span>
+
+        <div class="form-check">
+            @if(isCompleted){
+                <input checked checked id="isCompleted" (click)="updateCurrentAssignmentStatus()" type="checkbox" class="form-check-input" style="width: 30px; height: 30px;">
+            }@else{
+                <input id="isCompleted" type="checkbox" (click)="updateCurrentAssignmentStatus()" class="form-check-input" style="width: 30px; height: 30px;">
+            }
+        </div>
+    </form>
+</div>

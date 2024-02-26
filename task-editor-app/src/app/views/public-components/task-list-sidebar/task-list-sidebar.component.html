@@ -1,0 +1,24 @@
+<div class="d-flex flex-column w-100" >
+    <ul class="list-unstyled row d-flex justify-content-around">
+        @defer{
+            @for (assignmentList of listAssignmentList; track assignmentList){
+                <li class="col-sm-12 col-3">
+                    <button (click)="listAssignmentVisible($event)" class="d-flex flex-row m-1 btn btn-light shadow-sm flex-fill" id="assignmentListButton">
+                        <i class="bi bi-arrow-right-circle-fill p-1 d-none d-sm-flex" id="assignmentListIcon"></i>
+                        <span class="" id="assignmentListName">{{assignmentList.name}}</span>
+                        <span class="d-none" id="assignmentListId">{{assignmentList.id}}</span>
+                    </button>
+                </li>
+            }
+        }@placeholder{
+            <div class="spinner-border"></div>
+        }
+        <hr>
+        <li>
+            <button (click)="createPostAssignmentListForm()" class="btn btn-secondary w-100 d-flex justify-content-between align-items-center shadow">
+                <span class="d-md-flex">Create Task List</span>
+                <i class="bi bi-plus-circle-fill"></i>
+            </button>
+        </li>
+    </ul>
+</div>

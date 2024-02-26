@@ -1,0 +1,20 @@
+<form [formGroup]="signUpForm" (ngSubmit)="signInSubmit()" class="d-flex flex-column align-items-center p-2 m-2" action="">
+    <input  type="mail" class="form-control p-2 m-2" id="inputEmail" aria-describedby="Email" placeholder="Email" formControlName="inputEmail">
+
+    <input  type="text" class="form-control p-2 m-2" id="inputUsername" aria-describedby="Username" placeholder="Username" formControlName="inputUsername">
+    
+    <input type="password" class="form-control p-2 m-2" id="inputPassword" aria-describedby="Password" placeholder="Password" formControlName="inputPassword">
+
+    <input  type="password" class="form-control p-2 m-2" id="inputPasswordConfirm" aria-describedby="Confirm Password" placeholder="Confirm Password" formControlName="inputPasswordConfirm">
+
+    <button type="submit" class="btn btn-primary m-2">Create Account</button>   
+    
+    @if (this.signUpError != ""){
+        <span class="text-danger">{{this.signUpError}}</span>
+    }
+
+    @if (this.signUpResponse != ""){
+        <span class="text-success">{{this.signUpResponse}}</span>
+    }
+
+</form>

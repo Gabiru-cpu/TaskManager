@@ -1,0 +1,220 @@
+[
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
+    "Method": "CreateAssignment",
+    "RelativePath": "Assignment/create-assignment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentDto",
+        "Type": "newWebAPI.Domain.Models.DTOs.NewAssignmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
+    "Method": "DeleteAssignmentById",
+    "RelativePath": "Assignment/delete-assignment-by-id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
+    "Method": "UpdateAssignmentStatus",
+    "RelativePath": "Assignment/update-assignment-status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentListController",
+    "Method": "CreateAssignmentList",
+    "RelativePath": "AssignmentList/create-assignment-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newAssignmentListDTO",
+        "Type": "newWebAPI.Domain.Models.DTOs.NewAssignmentListDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentListController",
+    "Method": "DeleteAssignmentList",
+    "RelativePath": "AssignmentList/delete-assignment-list",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentListId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentListController",
+    "Method": "ListAssignmentByAssignmentList",
+    "RelativePath": "AssignmentList/list-assignment-by-assignment-list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentListId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentListController",
+    "Method": "GetListAssignmentListByUserId",
+    "RelativePath": "AssignmentList/list-assignments-by-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentListController",
+    "Method": "UpdateAssignmentList",
+    "RelativePath": "AssignmentList/update-assignment-list-name",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateAssignmentListDTO",
+        "Type": "newWebAPI.Domain.Models.DTOs.UpdateAssignmentListDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "Auth/sign-in",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signInDTO",
+        "Type": "newWebAPI.Domain.Models.DTOs.SignInDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "User/delete-user",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "User/get-user-by-id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.UserController",
+    "Method": "ListUser",
+    "RelativePath": "User/list-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.UserController",
+    "Method": "SignUp",
+    "RelativePath": "User/sign-up",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signUpDTO",
+        "Type": "newWebAPI.Domain.Models.DTOs.SignUpDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "User/update-user-data",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "newWebAPI.Domain.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
