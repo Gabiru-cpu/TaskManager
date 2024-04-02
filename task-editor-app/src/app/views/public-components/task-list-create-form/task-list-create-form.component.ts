@@ -20,7 +20,7 @@ export class TaskListCreateFormComponent {
   createAssignmentListForm: FormGroup;
   newAssignmentListError: boolean = false;
   errorName: string = "";
-  
+
   constructor(private router: Router, private formBuilder: FormBuilder, private assignmentListService: AssignmentListService, private authService: AuthService) {
     this.createAssignmentListForm = this.formBuilder.group({
       inputName:['', Validators.required]
@@ -29,8 +29,9 @@ export class TaskListCreateFormComponent {
 
   createAssignmentListSubmit(){
     this.newAssignmentListData.name = this.createAssignmentListForm.controls['inputName'].value
-    
-    let currentUserId = this.authService.currentUserValue!.currentUser!.userId
+    console.log(this.newAssignmentListData.name)
+    let currentUserId = this.authService.currentUserValue!.currentUser!.id
+    console.log(this.authService.currentUserValue?.currentUser)
     if(currentUserId != undefined && currentUserId != null){
       this.newAssignmentListData.userId = currentUserId
       this.postCreateAssignmentList(this.newAssignmentListData)
@@ -47,7 +48,7 @@ export class TaskListCreateFormComponent {
       error: error => {
         this.errorName = (error.error)
       }
-    }) 
+    })
   }
 
 }

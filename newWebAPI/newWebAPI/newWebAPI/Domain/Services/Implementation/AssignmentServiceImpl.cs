@@ -41,7 +41,7 @@ namespace newWebAPI.Domain.Services.Implementation
             return newAssignment;
         }
 
-        public async Task<Assignment> UpdateAssignmentStatus(int assignmentId)
+        public async Task<Assignment> UpdateToCompleteAssignmentStatus(int assignmentId)
         {
             Assignment assignment = await _assignmentRepository.GetAssignmentById(assignmentId);
 
@@ -68,6 +68,46 @@ namespace newWebAPI.Domain.Services.Implementation
             }
 
             return updatedAssignment;
+        }
+
+        public async Task<int> UpdateAssignmentList(UpdateAssignmentListDTO updateAssignmentListDTO)
+        {
+            AssignmentList listToUpdate = await _assignmentListRepository.GetAssignmentListById(updateAssignmentListDTO.Id);
+
+            if (listToUpdate == null)
+                throw new ArgumentException("Lista não encontrada");
+
+            if (updateAssignmentListDTO.NewName == null || updateAssignmentListDTO.NewName == "")
+                throw new ArgumentException("Inserir o novo nome");
+
+            AssignmentList newAssignmentList = listToUpdate;
+
+            newAssignmentList.Name = updateAssignmentListDTO.NewName;
+
+            int response = await _assignmentListRepository.UpdateAssignmentList(listToUpdate, newAssignmentList);
+
+            return response;
+        }
+
+        public async Task<int> UpdateAssignment(UpdateAssignmentDTO updateAssignmentDTO)
+        {
+            Assignment assignment = await _assignmentRepository.GetAssignmentById(updateAssignmentDTO.Id);
+
+            if (assignment == null)  throw new ArgumentException("Assignment could not be found");
+
+            if (updateAssignmentDTO.Title == null || updateAssignmentDTO.Title == "")
+                throw new ArgumentException("Inserir o novo titulo");
+
+            Assignment newAssignment = assignment;
+
+            newAssignment.Title = updateAssignmentDTO.Title;
+            newAssignment.Description = updateAssignmentDTO.Description;
+            newAssignment.IsCompleted = updateAssignmentDTO.IsCompleted;
+            newAssignment.DueDate = updateAssignmentDTO.DueDate;
+
+            int response = await _assignmentRepository.UpdateAssignment(assignment, newAssignment);
+
+            return response;
         }
 
         public async Task<bool> DeleteAssignmentById(int assignmentId)

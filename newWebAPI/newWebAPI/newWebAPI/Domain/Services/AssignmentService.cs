@@ -8,7 +8,8 @@ namespace newWebAPI.Domain.Services
     {  
         Task<Assignment> CreateAssignment(NewAssignmentDTO assignmentDTO);
 
-        Task<Assignment> UpdateAssignmentStatus(int assignmentId);
+        Task<int> UpdateAssignment(UpdateAssignmentDTO updateAssignmentDTO);
+        Task<Assignment> UpdateToCompleteAssignmentStatus(int assignmentId);
         Task<bool> DeleteAssignmentById(int assignmentId);
     }
 }

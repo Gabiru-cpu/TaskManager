@@ -36,6 +36,12 @@ export class AuthService {
         }))
     }
 
+    postLogout() {
+      localStorage.removeItem('currentUser');
+      this.currentUserSubject.next(null);
+      this.router.navigate(['/']);
+  }
+
     postSignUp(signUpData: SignUpModel){
         return this.http.post<any>("https://localhost:44378/User/sign-up", signUpData).pipe(map(createdUser =>{
             return createdUser

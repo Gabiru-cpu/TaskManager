@@ -10,7 +10,7 @@ namespace newWebAPI.Domain.Services.Implementation
 
         private readonly AssignmentListRepository _assignmentListRepository;
         private readonly UserRepository _userRepository;
-        private readonly AssignmentRepository _assignmentRepository;//Pode colocar a AssingmnetRepository aqui?
+        private readonly AssignmentRepository _assignmentRepository;
 
         public AssignmentListServiceImpl(AssignmentListRepository assignmentListRepository, UserRepository userRepository, AssignmentRepository assignmentRepository)
         {
@@ -79,7 +79,7 @@ namespace newWebAPI.Domain.Services.Implementation
             return response;
 
         }
-
+        
         public async Task<List<Assignment>> ListAssingmentByAssignmentList(int assignmentListId)
         {
             AssignmentList assignmentList = await _assignmentListRepository.GetAssignmentListById(assignmentListId);

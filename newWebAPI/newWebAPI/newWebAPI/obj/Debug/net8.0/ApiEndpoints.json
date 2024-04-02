@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
+    "Method": "UpdateToCompleteAssignmentStatus",
+    "RelativePath": "Assignment/complete-assignment-status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignmentId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
     "Method": "CreateAssignment",
     "RelativePath": "Assignment/create-assignment",
     "HttpMethod": "POST",
@@ -33,16 +49,16 @@
   },
   {
     "ContainingType": "newWebAPI.Application.Controllers.AssignmentController",
-    "Method": "UpdateAssignmentStatus",
-    "RelativePath": "Assignment/update-assignment-status",
+    "Method": "UpdateAssignment",
+    "RelativePath": "Assignment/update-assignment",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "assignmentId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "updateAssignmentDTO",
+        "Type": "newWebAPI.Domain.Models.DTOs.UpdateAssignmentDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

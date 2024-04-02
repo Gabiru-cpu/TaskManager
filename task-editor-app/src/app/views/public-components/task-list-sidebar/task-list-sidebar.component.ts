@@ -31,24 +31,6 @@ export class TaskListSidebarComponent implements OnInit {
     this.parentComponent.toggleAssignmentListComponent()
   }
 
-  async listAssignmentVisible(e: any){
-    let currentId: number
-    let currentName: string
-    if(e.target.id === "assignmentListButton"){
-      currentId = e.target.children[2].innerHTML
-      currentName = e.target.children[1].innerHTML
-    }else{
-      currentId  = e.target.parentElement.children[2].innerHTML
-      currentName = e.target.parentElement.children[1].innerHTML
-    }
-
-    this.getListAssignment(currentId, (currentList: AssignmentModel[], currentError: string)=>{
-      
-      this.parentComponent.showListAssignment(currentList, currentError, currentName, currentId)
-    })
-    
-  }
-  
   getListAssignment(assignmentListId: number, callBack: any){
     this.assignmentService.listAssignmentByAssignmentListId(assignmentListId).pipe(first()).subscribe({
       next: (res) => {
@@ -64,8 +46,8 @@ export class TaskListSidebarComponent implements OnInit {
 
   getListAssignmentList(){
     const currentUser = this.authService.currentUserValue!.currentUser;
-    const currentUserId = currentUser!.userId;
-  
+    const currentUserId = currentUser!.id;
+
     if(currentUserId != null && currentUserId != undefined){
       this.assignmentListService.getAssignmentListByUserId(currentUserId).pipe(first()).subscribe({
         next: (res) => {
@@ -77,4 +59,8 @@ export class TaskListSidebarComponent implements OnInit {
       })
     }
   }
+
+  postLogout() {
+    this.authService.postLogout();
+  };
 }

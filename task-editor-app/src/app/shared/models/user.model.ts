@@ -1,4 +1,4 @@
 export class UserModel {
-    userId?:string;
+    id?:string;
     userName?:string;
 }

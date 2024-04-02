@@ -4,18 +4,85 @@
         <div class="col-md-2 col-12">
             <app-task-list-sidebar></app-task-list-sidebar>
         </div>
-        
+
         <div class="col-md-10 col-12">
             @if (showCreateAssignmentListForm) {
                 <div class="d-flex border-bottom">
                     <app-task-list-create-form></app-task-list-create-form>
                 </div>
             }
-            <div>
-                <app-task-container [listAssignment]="listAssignment" [currentErrorMessage]="currentErrorMessage" [listTitle]="assignmentListTitle" [listId]="assignmentListId"></app-task-container>        
-            </div>
+
+            <div *ngFor="let assignmentList of listAssignmentList" class="table-responsive text-center my-3 card">
+    <h3 class="text-info">{{ assignmentList.name }}:</h3>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-success">
+          Adicionar Tarefa a lista <i class="bi bi-plus-circle"></i>
+      </button>
+      <button type="button" class="btn btn-danger ms-2 me-3">
+        Excluir lista <i class="bi bi-trash"></i>
+    </button>
+  </div>
+    <table class="table table-striped nps-table align-middle">
+      <thead>
+            <tr>
+                <th scope="col" class="nps-table-th">#</th>
+                <th scope="col" class="nps-table-th">Tarefas</th>
+                <th scope="col" class="nps-table-th">descrição</th>
+                <th scope="col" class="nps-table-th">prazo D/M/A</th>
+                <th scope="col" class="nps-table-th">Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+          <ng-container *ngIf="assignmentMap[assignmentList.id!] && assignmentMap[assignmentList.id!].length > 0; else noTasks">
+              <tr *ngFor="let assignment of assignmentMap[assignmentList.id!]; let i = index">
+                  <th scope="row">{{i + 1}}</th>
+                  <td class="nps-table-td">{{ assignment.title }}</td>
+                  <td class="nps-table-td">{{ assignment.description }}</td>
+                  <td class="nps-table-td">{{ assignment.dueDate | date:'dd/MM/yyyy' }}</td>
+                  <td class="nps-table-td">
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="checkbox{{ assignment.id }}">
+                          <label class="form-check-label" for="checkbox{{ assignment.id }}">Tarefa completa</label>
+                      </div>
+                      <button type="button" class="btn btn-outline-primary me-2" >
+                        <i class="bi bi-pencil-fill"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline-danger" >
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
+                  </td>
+              </tr>
+          </ng-container>
+          <ng-template #noTasks>
+              <tr>
+                  <td class="text-decoration-underline" colspan="5">Sem tarefas! Adicione novas tarefas a esta lista.</td>
+              </tr>
+          </ng-template>
+      </tbody>
+    </table>
+</div>
+
+            <!-- <div *ngFor="let assignmentList of listAssignmentList" class="d-flex flex-row m-1 btn btn-light shadow-sm flex-fill my-3">
+              <button class="btn btn-primary px-4 me-2"><i class="bi bi-plus-circle-fill"></i></button>
+              <h3>{{ assignmentList.name }}</h3>
+              <ul>
+                  <div>
+                      <li class="list-group-item" *ngFor="let assignment of assignmentMap[assignmentList.id!]">
+                        <input class="form-check-input" type="checkbox">
+                        {{ assignment.title }}
+                        <button class="btn btn-secondary mx-2"><i class="bi bi-pencil-fill"></i></button>
+                        <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                      </li>
+                  </div>
+              </ul>
+          </div> -->
+
+
         </div>
-    }@placeholder{
+    }
+    @placeholder{
         <div class="spinner-border"></div>
     }
+
 </div>

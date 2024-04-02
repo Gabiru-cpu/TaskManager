@@ -35,17 +35,33 @@ namespace newWebAPI.Application.Controllers
             }
         }
 
-        [HttpPatch("update-assignment-status")]
+        [HttpPatch("complete-assignment-status")]
 
-        public async Task<IResult> UpdateAssignmentStatus([FromQuery]int assignmentId)
+        public async Task<IResult> UpdateToCompleteAssignmentStatus([FromQuery]int assignmentId)
         {
             try
             {
-                Assignment updatedAssignment = await _assignmentService.UpdateAssignmentStatus(assignmentId);
-                return Results.Ok(updatedAssignment);
+                Assignment updatedStatus = await _assignmentService.UpdateToCompleteAssignmentStatus(assignmentId);
+                return Results.Ok(updatedStatus);
 
             }
             catch(Exception ex) {
+                return Results.BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpPatch("update-assignment")]
+
+        public async Task<IResult> UpdateAssignment([FromBody] UpdateAssignmentDTO updateAssignmentDTO)
+        {
+            try
+            {
+                int resp = await _assignmentService.UpdateAssignment(updateAssignmentDTO);
+                return Results.Ok(resp);
+            }
+            catch (Exception ex)
+            {
                 return Results.BadRequest(ex.Message);
             }
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel\\Downloads\\checklist\\taskEditor\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj": {}
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\TaskManagerApp\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel\\Downloads\\checklist\\taskEditor\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\TaskManagerApp\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel\\Downloads\\checklist\\taskEditor\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\TaskManagerApp\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj",
         "projectName": "newWebAPI",
-        "projectPath": "C:\\Users\\Gabriel\\Downloads\\checklist\\taskEditor\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel\\Downloads\\checklist\\taskEditor\\newWebAPI\\newWebAPI\\newWebAPI\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\TaskManagerApp\\newWebAPI\\newWebAPI\\newWebAPI\\newWebAPI.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\TaskManagerApp\\newWebAPI\\newWebAPI\\newWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
