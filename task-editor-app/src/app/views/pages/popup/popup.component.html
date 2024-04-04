@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Editar nome da lista</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<input type="text" class="form-control" placeholder="Novo nome da Lista" aria-label="NewName" aria-describedby="basic-addon1">
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Confirmar</button>
+	</div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openBackDropCustomClass(content)">
+	Modal with backdrop custom class
+</button>

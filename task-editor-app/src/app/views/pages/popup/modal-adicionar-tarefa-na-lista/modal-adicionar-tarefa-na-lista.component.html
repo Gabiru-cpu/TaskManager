@@ -1,0 +1,22 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Adicionar Tarefa a Lista</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<input type="text" class="form-control" placeholder="Novo Titulo" aria-label="title" aria-describedby="basic-addon1" [(ngModel)]="newAssignment.title">
+    <input type="text" class="form-control my-3" placeholder="Descrição" aria-label="description" aria-describedby="basic-addon1" [(ngModel)]="newAssignment.description">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Data</span>
+      <input type="date" class="form-control" aria-label="date" aria-describedby="basic-addon1" [(ngModel)]="newAssignment.dueDate" id="dueDateInput">
+    </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="createAssignment()">Criar</button>
+	</div>
+</ng-template>
+
+<button type="button" class="btn btn-success mx-2" (click)="openBackDropCustomClass(content)">
+  Adicionar Tarefa a lista <i class="bi bi-plus-circle"></i>
+</button>

@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Editar nome da lista</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<input type="text" class="form-control" placeholder="Novo nome da Lista" aria-label="NewName" aria-describedby="basic-addon1" [(ngModel)]="assignmentListName">
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="updateAssignmentListName()">Confirmar</button>
+	</div>
+</ng-template>
+
+<button type="button" class="btn btn-primary" (click)="openBackDropCustomClass(content)">
+  Editar nome da lista <i class="bi bi-pencil-fill"></i>
+</button>

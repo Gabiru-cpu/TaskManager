@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Excluir Tarefa</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <h6>tem certeza que deseja excluir essa tarefa?</h6>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="deleteAssignmentById()">Deletar</button>
+	</div>
+</ng-template>
+
+<button type="button" class="btn btn-outline-danger me-2" (click)="openBackDropCustomClass(content)">
+  <i class="bi bi-trash-fill"></i>
+</button>

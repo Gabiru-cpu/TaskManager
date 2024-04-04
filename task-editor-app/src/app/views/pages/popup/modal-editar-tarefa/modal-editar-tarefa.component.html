@@ -1,0 +1,28 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Editar Tarefa</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click'); restoreValues()"></button>
+	</div>
+	<div class="modal-body">
+		<input type="text" class="form-control" placeholder="Novo Titulo" aria-label="title" aria-describedby="basic-addon1" [(ngModel)]="assignment.title">
+    <input type="text" class="form-control my-3" placeholder="Descrição" aria-label="description" aria-describedby="basic-addon1" [(ngModel)]="assignment.description">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Data</span>
+      <input type="date" class="form-control" aria-label="date" aria-describedby="basic-addon1" [(ngModel)]="assignment.dueDate">
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="completeCheckbox" [(ngModel)]="assignment.isCompleted">
+      <label class="form-check-label" for="completeCheckbox">
+        Tarefa completa
+      </label>
+    </div>
+	</div>
+	<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click'); restoreValues()">Cancelar</button>
+    <button type="button" class="btn btn-primary" (click)="updateAssignment()">Confirmar</button>
+	</div>
+</ng-template>
+
+<button type="button" class="btn btn-outline-primary me-2" (click)="openBackDropCustomClass(content)">
+  <i class="bi bi-pencil-fill"></i>
+</button>

@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Excluir Lista</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+    <h6>tem certeza que deseja excluir essa lista?</h6>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="deleteAssignmentList()">Deletar</button>
+	</div>
+</ng-template>
+
+<button type="button" class="btn btn-danger me-3" (click)="openBackDropCustomClass(content)">
+  Excluir lista <i class="bi bi-trash"></i>
+</button>

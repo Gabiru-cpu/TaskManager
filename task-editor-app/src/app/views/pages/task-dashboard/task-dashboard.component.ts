@@ -9,11 +9,20 @@ import { TaskContainerComponent } from '../../public-components/task-container/t
 import { AuthService } from '../../../shared/services/auth.service';
 import { AssignmentListModel } from '../../../shared/models/assignmentList.model';
 import { AssignmentListService } from '../../../shared/services/assignment-list.service';
+import { PopupComponent } from '../popup/popup.component';
+import { ModalEditarNomeListaComponent } from '../popup/modal-editar-nome-lista/modal-editar-nome-lista.component';
+import { ModalEditarTarefaComponent } from '../popup/modal-editar-tarefa/modal-editar-tarefa.component';
+import { ModalAdicionarTarefaNaListaComponent } from '../popup/modal-adicionar-tarefa-na-lista/modal-adicionar-tarefa-na-lista.component';
+import { ModalDeletarListaComponent } from '../popup/modal-deletar-lista/modal-deletar-lista.component';
+import { ModalDeletarTarefaComponent } from '../popup/modal-deletar-tarefa/modal-deletar-tarefa.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-task-dashboard',
   standalone: true,
-  imports: [TaskListSidebarComponent, TaskListHeaderComponent, TaskListCreateFormComponent, TaskContainerComponent, CommonModule],
+  imports: [TaskListSidebarComponent, TaskListHeaderComponent, TaskListCreateFormComponent, TaskContainerComponent,
+    ModalEditarNomeListaComponent, ModalEditarTarefaComponent, ModalAdicionarTarefaNaListaComponent, ModalDeletarListaComponent, ModalDeletarTarefaComponent,
+    CommonModule, FormsModule],
   templateUrl: './task-dashboard.component.html',
   styleUrl: './task-dashboard.component.scss'
 })
@@ -66,8 +75,20 @@ export class TaskDashboardComponent {
     );
   }
 
+  updateAssignmentStatus(assignmentId: number) {
+    this.assignmentListService.updateAssignmentStatus(assignmentId).subscribe(
+      (response) => {
+        console.log('Assignment status updated successfully:');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error updating assignment status:', error);
+      }
+    );
+  }
 
   toggleAssignmentListComponent(){
     this.showCreateAssignmentListForm = !this.showCreateAssignmentListForm
   }
+
 }
