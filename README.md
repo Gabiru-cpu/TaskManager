@@ -21,7 +21,6 @@ Este é um projeto que visa criar um sistema de lista de tarefas onde os usuári
 - Adição, edição e exclusão de tarefas em uma lista
 - Visualização de detalhes de uma tarefa
 - Marcação de tarefas como concluídas
-- Filtragem de tarefas por tipo, status, etc.
 
 ## Para conseguir rodar
 
