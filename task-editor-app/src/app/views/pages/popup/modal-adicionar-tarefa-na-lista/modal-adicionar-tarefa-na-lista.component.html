@@ -10,6 +10,15 @@
       <span class="input-group-text" id="basic-addon1">Data</span>
       <input type="date" class="form-control" aria-label="date" aria-describedby="basic-addon1" [(ngModel)]="newAssignment.dueDate" id="dueDateInput">
     </div>
+    <div>
+      <p>clique no mapa ou busque seu Endereço</p>
+      <!-- input com autocomplete que pesquisa o endereço e seleciona ele no mpa e o leva até ele -->
+
+      <google-map (mapClick)="mapClicked($event)" height="400px" width="100%" [center]="initialCoordinates" [zoom]="15" [options]="mapConfigurations">
+        <map-marker *ngIf="selectedLocation" [position]="selectedLocation"></map-marker>
+      </google-map>
+
+    </div>
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Cancelar</button>

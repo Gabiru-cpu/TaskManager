@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using newWebAPI.Application.Data.Contexts;
 using newWebAPI.Application.Data.Repositories;
 using newWebAPI.Domain.Models;
 using newWebAPI.Domain.Services;
 using newWebAPI.Domain.Services.Implementation;
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,6 +46,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 // Add services to the container.
+builder.Services.AddHttpClient(); // Adiciona o HttpClient
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -79,6 +82,7 @@ builder.Services.AddScoped<UserService, UserServiceImpl>();
 builder.Services.AddScoped<AssignmentListService, AssignmentListServiceImpl>();
 builder.Services.AddScoped<AssignmentService, AssignmentServiceImpl>();
 builder.Services.AddScoped<AuthService, AuthServiceImpl>();
+builder.Services.AddScoped<GoogleMapsService, GoogleMapsServiceImpl>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

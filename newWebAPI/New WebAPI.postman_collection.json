@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44378/User/get-user-by-id?userId=883c64b1-9a90-4c50-a9d1-bc68fa6fdf3f",
+							"raw": "https://localhost:44378/User/get-user-by-id?userId=08c15e1c-4842-4104-922b-0788332d263f",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -28,7 +28,7 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "883c64b1-9a90-4c50-a9d1-bc68fa6fdf3f"
+									"value": "08c15e1c-4842-4104-922b-0788332d263f"
 								}
 							]
 						}
@@ -205,7 +205,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Compras\",\r\n    \"userId\":\"883c64b1-9a90-4c50-a9d1-bc68fa6fdf3f\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Limpar a casa\",\r\n    \"userId\":\"08c15e1c-4842-4104-922b-0788332d263f\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -320,7 +320,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Comprar batata frita\",\r\n    \"description\":\"preferencia as mais finas\",\r\n    \"dueDate\":\"2024-05-30\",\r\n    \"assignmentListId\":1\r\n}",
+							"raw": "{\r\n    \"title\":\"teste\",\r\n    \"description\":\"teste\",\r\n    \"dueDate\":\"2024-05-30\",\r\n    \"Address\":\"\",\r\n    \"Latitude\":-23.953723907470703,\r\n    \"Longitude\":-46.3701286315918,\r\n    \"assignmentListId\":1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -410,7 +410,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Id\": 3,\r\n    \"Title\": \"Novo título\",\r\n    \"Description\": \"Nova descrição\",\r\n    \"IsCompleted\": false,\r\n    \"DueDate\": \"2024-03-05T00:00:00\"\r\n}",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"title\":\"Arrumar a cama\",\r\n    \"description\":\"trocar para o lençol azul\",\r\n    \"dueDate\":\"2024-05-30\",\r\n    \"Address\":\"Rua Sinhá Junqueira, 55 - Vila Sao Jorge, São Vicente - SP, Brasil\",\r\n    \"Latitude\":-23.953723907470703,\r\n    \"Longitude\":-46.3701286315918,\r\n    \"assignmentListId\":1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -459,6 +459,37 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Google Maps API",
+			"item": [
+				{
+					"name": "Get maps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44378/GoogleMaps/get-address-info?address=Rua Sinhá Junqueira, 412 - Vila Sao Jorge, São Vicente - SP, Brasil",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44378",
+							"path": [
+								"GoogleMaps",
+								"get-address-info"
+							],
+							"query": [
+								{
+									"key": "address",
+									"value": "Rua Sinhá Junqueira, 412 - Vila Sao Jorge, São Vicente - SP, Brasil"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -494,7 +525,7 @@
 	"variable": [
 		{
 			"key": "AuthToken",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZ2FicmllbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiODgzYzY0YjEtOWE5MC00YzUwLWE5ZDEtYmM2OGZhNmZkZjNmIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiZ2FicmllbGxpYnJhbmRlQGdtYWlsLmNvbSIsImp0aSI6ImJmYzQ5OGRiLTY1YzgtNGZmZS1iY2M0LWQwZTI3YWYwYjMxMyIsImV4cCI6MTcxMjE4ODcxNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDM2OSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.xjk9r8otmTQKFQa4tjHux2mnhSygCfN2N9BUFVhbd1g"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZ2FicmllbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMDhjMTVlMWMtNDg0Mi00MTA0LTkyMmItMDc4ODMzMmQyNjNmIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiZ2FicmllbGxpYnJhbmRlQGdtYWlsLmNvbSIsImp0aSI6ImI4ZWRjNTdjLTU3N2YtNDJhNy05MjQzLTZiMjVjYzM1ZmM2MCIsImV4cCI6MTcxMzY2MTk2NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0NDM2OSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.5qiiLTeoMlDwU6Tm0vn33VQjuUl19oGPnHXNvKPZ6IQ"
 		}
 	]
 }

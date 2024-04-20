@@ -8,11 +8,16 @@ namespace newWebAPI.Domain.Services.Implementation
     {
         AssignmentRepository _assignmentRepository;
         AssignmentListRepository _assignmentListRepository;
+        
+        private readonly GoogleMapsService _googleMapsService;
 
-        public AssignmentServiceImpl(AssignmentRepository assignmentRepository, AssignmentListRepository assignmentListRepository)
+        public AssignmentServiceImpl(AssignmentRepository assignmentRepository, 
+            AssignmentListRepository assignmentListRepository, 
+            GoogleMapsService googleMapsService)
         {
             _assignmentRepository = assignmentRepository;
             _assignmentListRepository = assignmentListRepository;
+            _googleMapsService = googleMapsService;
         }
 
         public async Task<Assignment> CreateAssignment(NewAssignmentDTO assignmentDTO)
@@ -25,7 +30,7 @@ namespace newWebAPI.Domain.Services.Implementation
             if (await _assignmentListRepository.GetAssignmentListById(assignmentDTO.AssignmentListId) == null)
                 throw new ArgumentException("A lista à qual a tarefa pertence está inválida");
 
-            // não sei como validar DateTime
+            // TODO: validar data ainda nao feito
             //if(assignmentDTO.DueDate != null)
             //    assignmentDate = assignmentDTO.DueDate;
 
@@ -35,6 +40,12 @@ namespace newWebAPI.Domain.Services.Implementation
             newAssignment.DueDate = assignmentDTO.DueDate;
             newAssignment.IsCompleted = false;
             newAssignment.AssignmentListId = assignmentDTO.AssignmentListId;
+
+            string formattedAddress = _googleMapsService.FormatAddressForUrl(assignmentDTO.Address);
+            newAssignment.Address = formattedAddress;
+
+            newAssignment.Latitude = assignmentDTO.Latitude;
+            newAssignment.Longitude = assignmentDTO.Longitude;
 
             Assignment createdAssignment = await _assignmentRepository.CreateAssignment(newAssignment);
 
@@ -104,6 +115,12 @@ namespace newWebAPI.Domain.Services.Implementation
             newAssignment.Description = updateAssignmentDTO.Description;
             newAssignment.IsCompleted = updateAssignmentDTO.IsCompleted;
             newAssignment.DueDate = updateAssignmentDTO.DueDate;
+
+            string formattedAddress = _googleMapsService.FormatAddressForUrl(updateAssignmentDTO.Address);
+            newAssignment.Address = formattedAddress;
+
+            newAssignment.Latitude = updateAssignmentDTO.Latitude;
+            newAssignment.Longitude = updateAssignmentDTO.Longitude;
 
             int response = await _assignmentRepository.UpdateAssignment(assignment, newAssignment);
 

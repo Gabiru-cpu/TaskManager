@@ -6,4 +6,7 @@ export class AssignmentModel {
     description?: string;
     isCompleted?: boolean;
     dueDate?: Date;
+    address?: string;
+    latitude?: number;
+    longitude?: number;
 }

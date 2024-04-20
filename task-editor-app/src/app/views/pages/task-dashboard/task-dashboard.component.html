@@ -13,62 +13,73 @@
             }
 
             <div *ngFor="let assignmentList of listAssignmentList" class="table-responsive text-center my-3 card">
-    <h3 class="text-info">{{ assignmentList.name }}:</h3>
-    <div class="d-flex justify-content-end">
+                <h3 class="text-info">{{ assignmentList.name }}:</h3>
+                <div class="d-flex justify-content-end">
 
-      <app-modal-editar-nome-lista [assignmentListId]="assignmentList.id!" [assignmentListName]="assignmentList.name!"></app-modal-editar-nome-lista>
+                    <app-modal-editar-nome-lista [assignmentListId]="assignmentList.id!" [assignmentListName]="assignmentList.name!"></app-modal-editar-nome-lista>
 
-      <app-modal-adicionar-tarefa-na-lista [assignmentListId]="assignmentList.id!"></app-modal-adicionar-tarefa-na-lista>
+                    <app-modal-adicionar-tarefa-na-lista [assignmentListId]="assignmentList.id!"></app-modal-adicionar-tarefa-na-lista>
 
-      <app-modal-deletar-lista [assignmentListId]="assignmentList.id!"></app-modal-deletar-lista>
-  </div>
-    <table class="table table-striped nps-table align-middle">
-      <thead>
-            <tr>
-                <th scope="col" class="nps-table-th">#</th>
-                <th scope="col" class="nps-table-th">Tarefas</th>
-                <th scope="col" class="nps-table-th">descrição</th>
-                <th scope="col" class="nps-table-th">prazo D/M/A</th>
-                <th scope="col" class="nps-table-th">Ações</th>
-            </tr>
-        </thead>
+                    <app-modal-deletar-lista [assignmentListId]="assignmentList.id!"></app-modal-deletar-lista>
+                </div>
+                <table class="table table-striped nps-table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="nps-table-th">#</th>
+                            <th scope="col" class="nps-table-th">Tarefas</th>
+                            <th scope="col" class="nps-table-th">descrição</th>
+                            <th scope="col" class="nps-table-th">prazo D/M/A</th>
+                            <th scope="col" class="nps-table-th">Endereço</th>
+                            <th scope="col" class="nps-table-th">Ações</th>
+                        </tr>
+                    </thead>
 
-        <tbody>
-          <ng-container *ngIf="assignmentMap[assignmentList.id!] && assignmentMap[assignmentList.id!].length > 0; else noTasks">
-              <tr *ngFor="let assignment of assignmentMap[assignmentList.id!]; let i = index">
-                  <th scope="row">{{i + 1}}</th>
-                  <td class="nps-table-td">{{ assignment.title }}</td>
-                  <td class="nps-table-td">{{ assignment.description }}</td>
-                  <td class="nps-table-td">{{ assignment.dueDate | date:'dd/MM/yyyy' }}</td>
-                  <td class="nps-table-td">
-                    <div class="form-check form-check-inline">
-                      <input type="checkbox" class="form-check-input" [(ngModel)]="assignment.isCompleted" (change)="updateAssignmentStatus(assignment.id!)">
-                      <label class="form-check-label">Tarefa completa</label>
-                    </div>
+                    <tbody>
+                        <ng-container *ngIf="assignmentMap[assignmentList.id!] && assignmentMap[assignmentList.id!].length > 0; else noTasks">
+                            <tr *ngFor="let assignment of assignmentMap[assignmentList.id!]; let i = index">
+                                <th scope="row">{{i + 1}}</th>
+                                <td class="nps-table-td">{{ assignment.title }}</td>
+                                <td class="nps-table-td">{{ assignment.description }}</td>
+                                <td class="nps-table-td">{{ assignment.dueDate | date:'dd/MM/yyyy' }}</td>
 
-                      <app-modal-editar-tarefa [assignment]="assignment"></app-modal-editar-tarefa>
+                                <td class="nps-table-td" style="width: 35vw; height: 230px;">
+                                  <google-map height="100%" width="100%" [center]="{ lat: assignment.latitude!, lng: assignment.longitude! }" [zoom]="20" [options]="mapConfigurations">
+                                    <map-marker [position]="{ lat: assignment.latitude!, lng: assignment.longitude! }"></map-marker>
+                                  </google-map>
+                                </td>
+
+                                <td class="nps-table-td">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" [(ngModel)]="assignment.isCompleted" (change)="updateAssignmentStatus(assignment.id!)">
+                                        <label class="form-check-label">Tarefa completa</label>
+                                    </div>
+
+                                    <app-modal-editar-tarefa [assignment]="assignment"></app-modal-editar-tarefa>
 
 
 
-                      <app-modal-deletar-tarefa [assignmentId]="assignment.id!"></app-modal-deletar-tarefa>
-                  </td>
+                                    <app-modal-deletar-tarefa [assignmentId]="assignment.id!"></app-modal-deletar-tarefa>
+                                </td>
 
-              </tr>
-          </ng-container>
-          <ng-template #noTasks>
-              <tr>
-                  <td class="text-decoration-underline" colspan="5">Sem tarefas! Adicione novas tarefas a esta lista.</td>
-              </tr>
-          </ng-template>
-      </tbody>
-    </table>
-</div>
+                            </tr>
+                        </ng-container>
+                        <ng-template #noTasks>
+                            <tr>
+                                <td class="text-decoration-underline" colspan="5">Sem tarefas! Adicione novas tarefas a esta lista.</td>
+                            </tr>
+                        </ng-template>
+                    </tbody>
+                </table>
+            </div>
 
+
+            <!-- <app-modal-ajuda></app-modal-ajuda> -->
 
         </div>
     }
     @placeholder{
         <div class="spinner-border"></div>
     }
+
 
 </div>

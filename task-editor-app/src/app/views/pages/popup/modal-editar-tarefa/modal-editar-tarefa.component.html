@@ -16,6 +16,15 @@
         Tarefa completa
       </label>
     </div>
+    <div>
+      <p>clique no mapa ou busque seu Endereço</p>
+      <!-- input com autocomplete que pesquisa o endereço e seleciona ele no mpa e o leva até ele -->
+
+      <google-map (mapClick)="mapClicked($event)" height="400px" width="100%" [center]="{lat: assignment.latitude, lng: assignment.longitude}" [zoom]="15" [options]="mapConfigurations">
+        <map-marker *ngIf="selectedLocation" [position]="selectedLocation"></map-marker>
+      </google-map>
+
+    </div>
 	</div>
 	<div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click'); restoreValues()">Cancelar</button>
