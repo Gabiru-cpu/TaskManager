@@ -9,7 +9,7 @@ import { AuthService } from '../../../shared/services/auth.service';
   styleUrl: './task-list-header.component.scss'
 })
 export class TaskListHeaderComponent implements OnInit{
-
+  logoPath: string = "assets/taskManagerIcon.png"
   currentUserName: string = 'notLoggedIn';
 
   constructor(private authService: AuthService) { }
