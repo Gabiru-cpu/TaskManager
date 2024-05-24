@@ -19,13 +19,14 @@ import { FormsModule } from '@angular/forms';
 import { ModalAjudaComponent } from '../popup/modal-ajuda/modal-ajuda.component';
 import { GoogleMapsService } from '../../../shared/services/google-maps.service';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-task-dashboard',
   standalone: true,
   imports: [TaskListSidebarComponent, TaskListHeaderComponent, TaskListCreateFormComponent, TaskContainerComponent,
     ModalEditarNomeListaComponent, ModalEditarTarefaComponent, ModalAdicionarTarefaNaListaComponent, ModalDeletarListaComponent, ModalDeletarTarefaComponent, ModalAjudaComponent,
-    CommonModule, FormsModule,
+    CommonModule, FormsModule, RouterModule,
     GoogleMapsModule],
   templateUrl: './task-dashboard.component.html',
   styleUrl: './task-dashboard.component.scss'
@@ -46,6 +47,7 @@ export class TaskDashboardComponent {
 
   ngOnInit() {
     this.getAssignmentListsByUserId();
+
   };
 
   initialCoordinates = {

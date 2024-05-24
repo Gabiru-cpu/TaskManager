@@ -6,15 +6,28 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE"></script> -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=SUA-CHAVE"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=SUA-CHAVE"></script> -->
 
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE&callback=initAutocomplete&libraries=places&v=weekly"
-      defer
-    ></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=SUA-CHAVE&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
 </head>
 <body>
   <app-root></app-root>
+  <div vw class="enabled vw-plugin-wrapper">
+    <div vw-access-button class="active vw-plugin-wrapper"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper vw-plugin-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 </body>
 </html>

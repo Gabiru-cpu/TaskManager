@@ -9,7 +9,7 @@ namespace newWebAPI.Application.Controllers
     [Route("[controller]")]
     [Authorize]
     [ApiController]
-    public class UserController
+    public class UserController : ControllerBase
     {
 
         private readonly UserService _userService;
@@ -100,6 +100,13 @@ namespace newWebAPI.Application.Controllers
                 return Results.BadRequest(ex.Message);
             }
 
+        }
+
+        [AllowAnonymous]
+        [HttpGet("hello-world")]
+        public IActionResult HelloWorld()
+        {
+            return Ok("Hello World");
         }
 
     }

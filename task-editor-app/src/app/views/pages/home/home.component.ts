@@ -15,4 +15,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   logoPath: string = "assets/taskManagerIcon.png"
+
+
 }

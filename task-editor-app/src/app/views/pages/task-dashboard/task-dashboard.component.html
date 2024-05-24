@@ -49,16 +49,21 @@
                                 </td>
 
                                 <td class="nps-table-td">
-                                    <div class="form-check form-check-inline">
-                                        <input type="checkbox" class="form-check-input" [(ngModel)]="assignment.isCompleted" (change)="updateAssignmentStatus(assignment.id!)">
-                                        <label class="form-check-label">Tarefa completa</label>
-                                    </div>
 
-                                    <app-modal-editar-tarefa [assignment]="assignment"></app-modal-editar-tarefa>
+                                <div class="form-check form-check-inline">
+                                  <button class="btn plcheck" [ngClass]="{'btn-outline-success': assignment.isCompleted, 'btn-outline-danger': !assignment.isCompleted}" (click)="updateAssignmentStatus(assignment.id!)">
+                                    <input type="checkbox" class="form-check-input green-checkbox" [checked]="assignment.isCompleted" >
+                                    {{ assignment.isCompleted ? 'Tarefa completa' : 'Tarefa a fazer' }}
+                                  </button>
+                                </div>
 
 
 
-                                    <app-modal-deletar-tarefa [assignmentId]="assignment.id!"></app-modal-deletar-tarefa>
+                                    <app-modal-editar-tarefa title="Editar Tarefa" [assignment]="assignment"></app-modal-editar-tarefa>
+
+
+
+                                    <app-modal-deletar-tarefa title="Deletar Tarefa" aria-label="Deletar Tarefa" [assignmentId]="assignment.id!"></app-modal-deletar-tarefa>
                                 </td>
 
                             </tr>
@@ -73,6 +78,7 @@
             </div>
 
 
+
             <app-modal-ajuda></app-modal-ajuda>
 
         </div>
@@ -83,3 +89,5 @@
 
 
 </div>
+
+<router-outlet></router-outlet>

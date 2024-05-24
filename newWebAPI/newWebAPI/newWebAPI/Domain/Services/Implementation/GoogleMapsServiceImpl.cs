@@ -15,7 +15,7 @@ namespace newWebAPI.Domain.Services.Implementation
         {
             address = FormatAddressForUrl(address);
 
-            var apiKey = "SUA_CHAVE";
+            var apiKey = "SUA-CHAVE";
             var url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={apiKey}";
 
             var response = await _httpClient.GetAsync(url);

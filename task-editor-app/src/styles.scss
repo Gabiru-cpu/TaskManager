@@ -8,3 +8,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+.vw-plugin-wrapper {
+  left: 10px !important;
+  right: auto !important;
+}

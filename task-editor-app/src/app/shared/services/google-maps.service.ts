@@ -6,7 +6,7 @@ const apiUrl = "https://localhost:44378/Assignment/";
   providedIn: 'root'
 })
 export class GoogleMapsService {
-  private apiKey = 'SUA_CHAVE';
+  private apiKey = 'SUA-CHAVE';
 
   constructor(private http: HttpClient) { }
 
